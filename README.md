@@ -10,3 +10,5 @@ There is also a search function make with a plugin of Jquery
 As layout I Used Foundation 6 and font awesone for the icon, so this web application is responsive.
 
 I used also inside the php code a php method for prevent the attack from XSS.
+
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/c8d8743a389e4c8c909f80cc6d478f9d)](https://www.codacy.com/app/francesco-malagrino/SkybetTech)
