@@ -1,18 +1,6 @@
-language: php
-
-php:
-    - 5.3
-    - 5.4
-    - 5.5
-    - 5.6
-    - hhvm
-
-before_script:
-    - travis_retry composer self-update
-    - travis_retry composer install --no-interaction --prefer-source --dev
-
-script:
-    - vendor/bin/phpunit --coverage-clover=coverage.xml
-
+before_install:
+  - pip install codecov
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - codecov
+ pip install codecov
+codecov --token=2e4126f0-58b9-4556-85b0-bc94ec316b7a
