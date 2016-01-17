@@ -3,7 +3,7 @@
 <head>
 <meta characters="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Skybet Test Edit </title>
+<title>Skybet Test </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="css/foundation.css" rel="stylesheet" media="screen">
 <style>
@@ -12,12 +12,12 @@ body {padding-left:20px;padding-top:20px;}
 </head>
 <body>
 <?php
-$people = simplexml_load_file('data.xml');
+$people = simplexml_load_file('data.xml') or die("xml not loading");
 
 if(isset($_POST['submitSave'])) {
 	foreach ($people->person as $person) {
 		if($person['id'] == $_POST['id']){
-		$person['id'] =  strip_tags($_POST['id']);
+		
 		$person->firstname = strip_tags($_POST['firstname']);
 		$person->surname = strip_tags($_POST['surname']);
 		break;
@@ -25,6 +25,16 @@ if(isset($_POST['submitSave'])) {
 }
 file_put_contents('data.xml', $people->asXML());
 header('location: index.php');
+}else {
+$submit = $_POST['submitSave']; // save $submit from POST made by HTTP request
+    if(empty($submit)){      // exist but it's null
+        $errMess="Empty"; // #1 Nothing in $submit it's emtpy
+	} else {                  // couldn't find ?$submit=dataHere
+     $errMess="Missing";  // #3 There's no $submit in request data
+  }
+
+echo "Was there a problem: ".$errMess."!";	
+	
 }
 
 foreach ($people->person as $person) {
@@ -44,7 +54,7 @@ foreach ($people->person as $person) {
 
 			<td>id</td>
 
-			<td><input type="text" name="id" value="<?php echo $id; ?>"></td>
+			<td><input type="text" name="id" value="<?php echo $id; ?>" readonly></td>
 
 		</tr>
 	
@@ -68,7 +78,7 @@ foreach ($people->person as $person) {
 
 		<td>&nbsp;</td>
 
-		<td><input type="submit" name="submitSave"></td>
+		<td><input type="submit"  name="submitSave"></td>
 
 		</tr>
 
