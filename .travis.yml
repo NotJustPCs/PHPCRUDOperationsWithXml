@@ -1,6 +1,0 @@
-before_install:
-  - pip install codecov
-after_success:
-  - codecov
- pip install codecov
-codecov --token=2e4126f0-58b9-4556-85b0-bc94ec316b7a
