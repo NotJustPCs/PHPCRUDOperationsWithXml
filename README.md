@@ -16,3 +16,11 @@ I used also inside the php code a php method for prevent the attack from XSS.
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Vegetam/skybettech/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+[![bitHound Overall Score](https://www.bithound.io/github/Vegetam/SkybetTech/badges/score.svg)](https://www.bithound.io/github/Vegetam/SkybetTech)
+
+[![bitHound Dependencies](https://www.bithound.io/github/Vegetam/SkybetTech/badges/dependencies.svg)](https://www.bithound.io/github/Vegetam/SkybetTech/master/dependencies/npm)
+
+[![bitHound Dev Dependencies](https://www.bithound.io/github/Vegetam/SkybetTech/badges/devDependencies.svg)](https://www.bithound.io/github/Vegetam/SkybetTech/master/dependencies/npm)
+
+[![bitHound Code](https://www.bithound.io/github/Vegetam/SkybetTech/badges/code.svg)](https://www.bithound.io/github/Vegetam/SkybetTech)
+
