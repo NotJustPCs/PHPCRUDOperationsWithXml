@@ -12,3 +12,7 @@ As layout I Used Foundation 6 and font awesone for the icon, so this web applica
 I used also inside the php code a php method for prevent the attack from XSS.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/c8d8743a389e4c8c909f80cc6d478f9d)](https://www.codacy.com/app/francesco-malagrino/SkybetTech)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Vegetam/skybettech/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
