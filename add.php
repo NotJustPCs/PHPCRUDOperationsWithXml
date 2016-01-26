@@ -3,7 +3,7 @@
 <head>
 <meta characters="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Skybet Test </title>
+<title>Php Cruid Operation With XML Add </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="css/foundation.css" rel="stylesheet" media="screen">
 <style>
@@ -14,7 +14,7 @@ table {width: 100%;}
 <body>
 
 <?php
-$people = simplexml_load_file('data.xml') or die("xml not loading");
+$people = simplexml_load_file('data.xml');
 
 if(isset($_POST['submitSave'])) {
 
@@ -27,16 +27,6 @@ file_put_contents('data.xml', $people->asXML());
 
 header('location: index.php');
 
-}else {
-$submit = $_POST['submitSave']; // save $submit from POST made by HTTP request
-    if(empty($submit)){      // exist but it's null
-        $errMess="Empty"; // #1 Nothing in $submit it's emtpy
-	} else {                  // couldn't find ?$submit=dataHere
-     $errMess="Missing";  // #3 There's no $submit in request data
-  }
-
-echo "Was there a problem: ".$errMess."!";	
-	
 }
 ?>
 <div class="row">
@@ -59,12 +49,13 @@ echo "Was there a problem: ".$errMess."!";
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input class="primary button" type="submit" name="submitSave" value="Save"></td>
+						<td><input class="primary button" type="submit" name="submitSave" onclick="SpecialChars();" value="Save"></td>
 					</tr>
 				</table>
 			</form>
 		</div>
 	</div>
 </div>
-</body>
+<script src="specialcharacterscontrol.js"></script>
+<body>
 </html>
