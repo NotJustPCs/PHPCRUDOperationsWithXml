@@ -49,13 +49,12 @@ header('location: index.php');
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input class="primary button" type="submit" name="submitSave" onclick="SpecialChars();" value="Save"></td>
+						<td><input class="primary button" type="submit" name="submitSave" value="Save"></td>
 					</tr>
 				</table>
 			</form>
 		</div>
 	</div>
 </div>
-<script src="specialcharacterscontrol.js"></script>
 <body>
 </html>
