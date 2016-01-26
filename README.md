@@ -20,5 +20,4 @@ I used also inside the php code a php method for prevent the attack from XSS
 
 [![bitHound Dev Dependencies](https://www.bithound.io/github/Vegetam/PHPCRUDOperationsWithXml/badges/devDependencies.svg)](https://www.bithound.io/github/Vegetam/PHPCRUDOperationsWithXml/master/dependencies/npm)
 
-[![bitHound Code](https://www.bithound.io/github/Vegetam/SkybetTech/badges/code.svg)](https://www.bithound.io/github/Vegetam/SkybetTech)
 
