@@ -3,7 +3,7 @@
 <head>
 <meta characters="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Skybet Test </title>
+<title>Php Cruid Operation With XML</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="css/foundation.css" rel="stylesheet" media="screen">
 <style>
@@ -80,4 +80,5 @@ $(document).ready(function() {
     $(".table-sieve").sieve({ searchTemplate: searchTemplate });
 }); 
   </script>
+
 </html>
