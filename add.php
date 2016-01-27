@@ -12,21 +12,21 @@ table {width: 100%;}
 </style>
 </head>
 <body>
-
 <?php
 $people = simplexml_load_file('data.xml');
-
 if(isset($_POST['submitSave'])) {
-
+if (strip_tags($_POST['firstname']) != "" && strip_tags($_POST['surname']) != "")
+{
 $person = $people->addChild('person');
 $person->addAttribute('id', strip_tags($_POST['id']));
 $person->addChild('firstname', strip_tags($_POST['firstname']));
 $person->addChild('surname', strip_tags($_POST['surname']));
-
 file_put_contents('data.xml', $people->asXML());
-
 header('location: index.php');
-
+}else {?>
+<script>alert("The field cannot be empty");</script>
+<?php
+}
 }
 ?>
 <div class="row">
