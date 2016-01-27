@@ -8,6 +8,9 @@ As layout I Used Foundation 6 and font awesone for the icon, so this web applica
 
 I used also inside the php code a php method for prevent the attack from XSS
 
+## License
+MIT
+
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/c8d8743a389e4c8c909f80cc6d478f9d)](https://www.codacy.com/app/francesco-malagrino/SkybetTech)
 
 <a href="https://codeclimate.com/github/Vegetam/SkybetTech"><img src="https://codeclimate.com/github/Vegetam/SkybetTech/badges/gpa.svg" /></a>
