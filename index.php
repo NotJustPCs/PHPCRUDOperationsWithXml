@@ -13,22 +13,22 @@ table{width:100%;}
 </head>
 <body>
 <?php
-    $people = simplexml_load_file("data.xml") or die("xml not loading");
+    $tbook = simplexml_load_file("contacts.xml") or die("xml not loading");
 if(isset($_GET['action'])) {
 
     $id = $_GET['id'];
     $index = 0;
     $i = 0;
      
-    foreach($people->person as $person) {
-        if ($person['id'] == $id) {
+    foreach($tbook->DIR_ENTRY as $DIR_ENTRY) {
+        if ($DIR_ENTRY['id'] == $id) {
             $index = $i;
             break;
         }
         $i++;
     }
-    unset($people->person[$index]);
-    file_put_contents('data.xml', $people->asXML());
+    unset($tbook->DIR_ENTRY[$index]);
+    file_put_contents('contacts.xml', $tbook->asXML());
     }
 ?>
 <div class="row">
@@ -41,25 +41,29 @@ if(isset($_GET['action'])) {
 	    <th>id</th>
             <th>First name</th>
             <th>Last name</th>
+            <th>Work number</th>
+            <th>Mobile number</th>
 	    <th>&nbsp;</th>
         </tr>
 </thead>
 <tbody>
 <?php
 
-foreach($people->person as $person) { ?>
+foreach($tbook->DIR_ENTRY as $DIR_ENTRY) { ?>
 <tr>
-<td> <?php echo $person['id']; ?> </td>
-<td> <?php echo $person->firstname; ?> </td>
-<td><?php echo $person->surname; ?></td>
-<td align="center"><a class="small button" href="edit.php?id=<?php echo $person['id']; ?>"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a> <a class="small button secondary" href="index.php?action=delete&id=<?php echo $person['id']; ?>" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
+<td> <?php echo $DIR_ENTRY['id']; ?> </td>
+<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NAME_FIRST; ?> </td>
+<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NAME_LAST; ?></td>
+<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NUMBER_WORK; ?></td>
+<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NUMBER_MOBILE; ?></td>
+<td align="center"><a class="small button" href="edit.php?id=<?php echo $DIR_ENTRY['id']; ?>"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a> <a class="small button secondary" href="index.php?action=delete&id=<?php echo $DIR_ENTRY['id']; ?>" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
 </tr>
 <?php } ?>
 </tbody>
 </table>
 				
 		<div class="show-for-medium">
-		<a class="primary button" href="add.php"><i class="fa fa-plus"></i>  Add a new person</a>
+		<a class="primary button" href="add.php"><i class="fa fa-plus"></i>  Add a new DIR_ENTRY</a>
 		</div>
 		
 		<div class="show-for-small-only">

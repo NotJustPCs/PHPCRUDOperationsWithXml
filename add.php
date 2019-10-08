@@ -13,15 +13,17 @@ table {width: 100%;}
 </head>
 <body>
 <?php
-$people = simplexml_load_file('data.xml');
+$tbook = simplexml_load_file('contacts.xml');
 if(isset($_POST['submitSave'])) {
-if (strip_tags($_POST['firstname']) != "" && strip_tags($_POST['surname']) != "")
+if (strip_tags($_POST['DIR_ENTRY_NAME_FIRST']) != "" && strip_tags($_POST['DIR_ENTRY_NAME_LAST']) != "")
 {
-$person = $people->addChild('person');
-$person->addAttribute('id', strip_tags($_POST['id']));
-$person->addChild('firstname', strip_tags($_POST['firstname']));
-$person->addChild('surname', strip_tags($_POST['surname']));
-file_put_contents('data.xml', $people->asXML());
+$DIR_ENTRY = $tbook->addChild('DIR_ENTRY');
+$DIR_ENTRY->addAttribute('id', strip_tags($_POST['id']));
+$DIR_ENTRY->addChild('DIR_ENTRY_NAME_FIRST', strip_tags($_POST['DIR_ENTRY_NAME_FIRST']));
+$DIR_ENTRY->addChild('DIR_ENTRY_NAME_LAST', strip_tags($_POST['DIR_ENTRY_NAME_LAST']));
+$DIR_ENTRY->addChild('DIR_ENTRY_NUMBER_WORK', strip_tags($_POST['DIR_ENTRY_NUMBER_WORK']));
+$DIR_ENTRY->addChild('DIR_ENTRY_NUMBER_MOBILE', strip_tags($_POST['DIR_ENTRY_NUMBER_MOBILE']));
+file_put_contents('contacts.xml', $tbook->asXML());
 header('location: index.php');
 }else {?>
 <script>alert("The field cannot be empty");</script>
@@ -40,12 +42,20 @@ header('location: index.php');
 						<td><input type="text" name="id"></td>
 					</tr>
 					<tr>
-						<td>Firstname</td>
-						<td><input type="text" name="firstname"></td>
+						<td>DIR_ENTRY_NAME_FIRST</td>
+						<td><input type="text" name="DIR_ENTRY_NAME_FIRST"></td>
 					</tr>
 					<tr>
-						<td>Surname</td>
-						<td><input type="text" name="surname"></td>
+						<td>DIR_ENTRY_NAME_LAST</td>
+						<td><input type="text" name="DIR_ENTRY_NAME_LAST"></td>
+					</tr>
+					<tr>
+						<td>DIR_ENTRY_NUMBER_WORK</td>
+						<td><input type="text" name="DIR_ENTRY_NUMBER_WORK"></td>
+					</tr>
+					<tr>
+						<td>DIR_ENTRY_NUMBER_MOBILE</td>
+						<td><input type="text" name="DIR_ENTRY_NUMBER_MOBILE"></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
