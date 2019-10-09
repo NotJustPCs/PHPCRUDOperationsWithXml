@@ -4,7 +4,8 @@
 <meta characters="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>XML Directory Editor</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//www.njpcstatus.co.uk/style.css?v=20191009">
 <link href="css/foundation.css" rel="stylesheet" media="screen">
 <style>
 body {padding-left:20px;padding-top:20px;}
