@@ -1,4 +1,4 @@
-# PHP CRUD Operation with XML
+# PHP CRUD Operation with XML - forked from https://github.com/Vegetam/PHPCRUDOperationsWithXml
 
 Its a PHP tools that make you edit delete a table and the data are inside an XML.
 
@@ -7,6 +7,15 @@ There is also a search function make with a plugin of Jquery
 As layout I Used Foundation 6 and font awesone for the icon, so this web application is responsive.
 
 I used also inside the php code a php method for prevent the attack from XSS
+
+# Examples for DDNS access - https://github.com/holodyn/dyndns-htaccess
+CRON:
+php -q /home/YOURACCOUNT/public_html/.htaccess.dyndns.php > /dev/null
+
+# DYNDNS your.ddns.address
+Allow from 1.1.1.1
+
+</FilesMatch>
 
 ## License
 MIT
