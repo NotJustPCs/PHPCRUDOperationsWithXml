@@ -21,7 +21,7 @@ if(isset($_GET['action'])) {
     $index = 0;
     $i = 0;
      
-    foreach($tbook->DIR_ENTRY as $DIR_ENTRY) {
+    foreach($tbook->DirectoryEntry as $DIR_ENTRY) {
         if ($DIR_ENTRY['id'] == $id) {
             $index = $i;
             break;
@@ -50,13 +50,12 @@ if(isset($_GET['action'])) {
 <tbody>
 <?php
 
-foreach($tbook->DIR_ENTRY as $DIR_ENTRY) { ?>
+foreach($tbook->DirectoryEntry as $DIR_ENTRY) { ?>
 <tr>
 <td> <?php echo $DIR_ENTRY['id']; ?> </td>
-<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NAME_FIRST; ?> </td>
-<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NAME_LAST; ?></td>
-<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NUMBER_WORK; ?></td>
-<td> <?php echo $DIR_ENTRY->DIR_ENTRY_NUMBER_MOBILE; ?></td>
+<td> <?php echo $DIR_ENTRY->Name; ?> </td>
+<td> <?php echo $DIR_ENTRY->Telephone; ?></td>
+<td> <?php echo $DIR_ENTRY->Telephone; ?></td>
 <td align="center"><a class="small button" href="edit.php?id=<?php echo $DIR_ENTRY['id']; ?>"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a> <a class="small button secondary" href="index.php?action=delete&id=<?php echo $DIR_ENTRY['id']; ?>" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
 </tr>
 <?php } ?>

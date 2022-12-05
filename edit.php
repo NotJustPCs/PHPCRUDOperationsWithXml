@@ -16,13 +16,12 @@ body {padding-left:20px;padding-top:20px;}
 $tbook = simplexml_load_file('contacts.xml') or die("xml not loading");
 
 if(isset($_POST['submitSave'])) {
-	foreach ($tbook->DIR_ENTRY as $DIR_ENTRY) {
+	foreach ($tbook->DirectoryEntry as $DIR_ENTRY) {
 		if($DIR_ENTRY['id'] == $_POST['id']){
 		$DIR_ENTRY['id'] =  strip_tags($_POST['id']);
-		$DIR_ENTRY->DIR_ENTRY_NAME_FIRST = strip_tags($_POST['DIR_ENTRY_NAME_FIRST']);
-		$DIR_ENTRY->DIR_ENTRY_NAME_LAST = strip_tags($_POST['DIR_ENTRY_NAME_LAST']);
-		$DIR_ENTRY->DIR_ENTRY_NUMBER_WORK = strip_tags($_POST['DIR_ENTRY_NUMBER_WORK']);
-		$DIR_ENTRY->DIR_ENTRY_NUMBER_MOBILE = strip_tags($_POST['DIR_ENTRY_NUMBER_MOBILE']);
+		$DIR_ENTRY->Name = strip_tags($_POST['Name']);
+		$DIR_ENTRY->Telephone = strip_tags($_POST['Telephone']);
+		$DIR_ENTRY->Telephone = strip_tags($_POST['Telephone']);
 		break;
 }
 }
@@ -30,13 +29,12 @@ file_put_contents('contacts.xml', $tbook->asXML());
 header('location: index.php');
 }
 
-foreach ($tbook->DIR_ENTRY as $DIR_ENTRY) {
+foreach ($tbook->DirectoryEntry as $DIR_ENTRY) {
 		if($DIR_ENTRY['id'] == $_GET['id']) {
 		$id =  $DIR_ENTRY['id'];
-       	$DIR_ENTRY_NAME_FIRST = $DIR_ENTRY->DIR_ENTRY_NAME_FIRST;
-		$DIR_ENTRY_NAME_LAST = $DIR_ENTRY->DIR_ENTRY_NAME_LAST;
-       	$DIR_ENTRY_NUMBER_WORK = $DIR_ENTRY->DIR_ENTRY_NUMBER_WORK;
-		$DIR_ENTRY_NUMBER_MOBILE = $DIR_ENTRY->DIR_ENTRY_NUMBER_MOBILE;
+       	$Name = $DIR_ENTRY->Name;
+       	$Telephone = $DIR_ENTRY->Telephone;
+		$Telephone = $DIR_ENTRY->Telephone;
        } 
     }
 
@@ -55,33 +53,25 @@ foreach ($tbook->DIR_ENTRY as $DIR_ENTRY) {
 	
 		<tr>
 
-			<td>DIR_ENTRY_NAME_FIRST</td>
+			<td>Name</td>
 
-			<td><input type="text" name="DIR_ENTRY_NAME_FIRST" value="<?php echo $DIR_ENTRY_NAME_FIRST; ?>"></td>
-
-		</tr>
-
-		<tr>
-
-			<td>DIR_ENTRY_NAME_LAST</td>
-
-			<td><input type="text" name="DIR_ENTRY_NAME_LAST" value="<?php echo $DIR_ENTRY_NAME_LAST; ?>"></td>
+			<td><input type="text" name="Name" value="<?php echo $Name; ?>"></td>
 
 		</tr>
 		
 		<tr>
 
-			<td>DIR_ENTRY_NUMBER_WORK</td>
+			<td>Telephone</td>
 
-			<td><input type="text" name="DIR_ENTRY_NUMBER_WORK" value="<?php echo $DIR_ENTRY_NUMBER_WORK; ?>"></td>
+			<td><input type="text" name="Telephone" value="<?php echo $Telephone; ?>"></td>
 
 		</tr>
 		
 		<tr>
 
-			<td>DIR_ENTRY_NUMBER_MOBILE</td>
+			<td>Telephone</td>
 
-			<td><input type="text" name="DIR_ENTRY_NUMBER_MOBILE" value="<?php echo $DIR_ENTRY_NUMBER_MOBILE; ?>"></td>
+			<td><input type="text" name="Telephone" value="<?php echo $Telephone; ?>"></td>
 
 		</tr>
 

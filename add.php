@@ -16,14 +16,13 @@ table {width: 100%;}
 <?php
 $tbook = simplexml_load_file('contacts.xml');
 if(isset($_POST['submitSave'])) {
-if (strip_tags($_POST['DIR_ENTRY_NAME_FIRST']) != "" && strip_tags($_POST['DIR_ENTRY_NAME_LAST']) != "")
+if (strip_tags($_POST['Name']) != "" )
 {
-$DIR_ENTRY = $tbook->addChild('DIR_ENTRY');
+$DirectoryEntry = $tbook->addChild('DIR_ENTRY');
 $DIR_ENTRY->addAttribute('id', strip_tags($_POST['id']));
-$DIR_ENTRY->addChild('DIR_ENTRY_NAME_FIRST', strip_tags($_POST['DIR_ENTRY_NAME_FIRST']));
-$DIR_ENTRY->addChild('DIR_ENTRY_NAME_LAST', strip_tags($_POST['DIR_ENTRY_NAME_LAST']));
-$DIR_ENTRY->addChild('DIR_ENTRY_NUMBER_WORK', strip_tags($_POST['DIR_ENTRY_NUMBER_WORK']));
-$DIR_ENTRY->addChild('DIR_ENTRY_NUMBER_MOBILE', strip_tags($_POST['DIR_ENTRY_NUMBER_MOBILE']));
+$DIR_ENTRY->addChild('Name', strip_tags($_POST['Name']));
+$DIR_ENTRY->addChild('Telephone', strip_tags($_POST['Telephone']));
+$DIR_ENTRY->addChild('Telephone', strip_tags($_POST['Telephone']));
 file_put_contents('contacts.xml', $tbook->asXML());
 header('location: index.php');
 }else {?>
@@ -43,20 +42,16 @@ header('location: index.php');
 						<td><input type="text" name="id"></td>
 					</tr>
 					<tr>
-						<td>DIR_ENTRY_NAME_FIRST</td>
-						<td><input type="text" name="DIR_ENTRY_NAME_FIRST"></td>
+						<td>Name</td>
+						<td><input type="text" name="Name"></td>
 					</tr>
 					<tr>
-						<td>DIR_ENTRY_NAME_LAST</td>
-						<td><input type="text" name="DIR_ENTRY_NAME_LAST"></td>
+						<td>Telephone</td>
+						<td><input type="text" name="Telephone"></td>
 					</tr>
 					<tr>
-						<td>DIR_ENTRY_NUMBER_WORK</td>
-						<td><input type="text" name="DIR_ENTRY_NUMBER_WORK"></td>
-					</tr>
-					<tr>
-						<td>DIR_ENTRY_NUMBER_MOBILE</td>
-						<td><input type="text" name="DIR_ENTRY_NUMBER_MOBILE"></td>
+						<td>Telephone</td>
+						<td><input type="text" name="Telephone"></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
