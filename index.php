@@ -21,14 +21,14 @@ if(isset($_GET['action'])) {
     $index = 0;
     $i = 0;
      
-    foreach($tbook->DirectoryEntry as $DIR_ENTRY) {
-        if ($DIR_ENTRY['id'] == $id) {
+    foreach($tbook->DirectoryEntry as $DirectoryEntry) {
+        if ($DirectoryEntry['id'] == $id) {
             $index = $i;
             break;
         }
         $i++;
     }
-    unset($tbook->DIR_ENTRY[$index]);
+    unset($tbook->DirectoryEntry[$index]);
     file_put_contents('contacts.xml', $tbook->asXML());
     }
 ?>
@@ -50,20 +50,20 @@ if(isset($_GET['action'])) {
 <tbody>
 <?php
 
-foreach($tbook->DirectoryEntry as $DIR_ENTRY) { ?>
+foreach($tbook->DirectoryEntry as $DirectoryEntry) { ?>
 <tr>
-<td> <?php echo $DIR_ENTRY['id']; ?> </td>
-<td> <?php echo $DIR_ENTRY->Name; ?> </td>
-<td> <?php echo $DIR_ENTRY->Telephone; ?></td>
-<td> <?php echo $DIR_ENTRY->Telephone; ?></td>
-<td align="center"><a class="small button" href="edit.php?id=<?php echo $DIR_ENTRY['id']; ?>"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a> <a class="small button secondary" href="index.php?action=delete&id=<?php echo $DIR_ENTRY['id']; ?>" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
+<td> <?php echo $DirectoryEntry['id']; ?> </td>
+<td> <?php echo $DirectoryEntry->Name; ?> </td>
+<td> <?php echo $DirectoryEntry->Telephone; ?></td>
+<td> <?php echo $DirectoryEntry->Telephone; ?></td>
+<td align="center"><a class="small button" href="edit.php?id=<?php echo $DirectoryEntry['id']; ?>"><i class="fa fa-pencil fa-fw"></i>&nbsp; Edit</a> <a class="small button secondary" href="index.php?action=delete&id=<?php echo $DirectoryEntry['id']; ?>" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
 </tr>
 <?php } ?>
 </tbody>
 </table>
 				
 		<div class="show-for-medium">
-		<a class="primary button" href="add.php"><i class="fa fa-plus"></i>  Add a new DIR_ENTRY</a>
+		<a class="primary button" href="add.php"><i class="fa fa-plus"></i>  Add a new DirectoryEntry</a>
 		</div>
 		
 		<div class="show-for-small-only">

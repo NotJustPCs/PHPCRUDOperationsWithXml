@@ -16,12 +16,9 @@ body {padding-left:20px;padding-top:20px;}
 $tbook = simplexml_load_file('contacts.xml') or die("xml not loading");
 
 if(isset($_POST['submitSave'])) {
-	foreach ($tbook->DirectoryEntry as $DIR_ENTRY) {
-		if($DIR_ENTRY['id'] == $_POST['id']){
-		$DIR_ENTRY['id'] =  strip_tags($_POST['id']);
-		$DIR_ENTRY->Name = strip_tags($_POST['Name']);
-		$DIR_ENTRY->Telephone = strip_tags($_POST['Telephone']);
-		$DIR_ENTRY->Telephone = strip_tags($_POST['Telephone']);
+	foreach ($tbook->DirectoryEntry as $DirectoryEntry) {
+		$DirectoryEntry->Name = strip_tags($_POST['Name']);
+		$DirectoryEntry->Telephone = strip_tags($_POST['Telephone']);
 		break;
 }
 }
@@ -29,12 +26,9 @@ file_put_contents('contacts.xml', $tbook->asXML());
 header('location: index.php');
 }
 
-foreach ($tbook->DirectoryEntry as $DIR_ENTRY) {
-		if($DIR_ENTRY['id'] == $_GET['id']) {
-		$id =  $DIR_ENTRY['id'];
-       	$Name = $DIR_ENTRY->Name;
-       	$Telephone = $DIR_ENTRY->Telephone;
-		$Telephone = $DIR_ENTRY->Telephone;
+foreach ($tbook->DirectoryEntry as $DirectoryEntry) {
+       	$Name = $DirectoryEntry->Name;
+		$Telephone = $DirectoryEntry->Telephone;
        } 
     }
 
@@ -42,28 +36,12 @@ foreach ($tbook->DirectoryEntry as $DIR_ENTRY) {
 <form method="post" onsubmit="SpecialChars();">
 
 	<table cellpadding="2" cellspacing="2">
-
-		<tr>
-
-			<td>id</td>
-
-			<td><input type="text" name="id" value="<?php echo $id; ?>"readonly></td>
-
-		</tr>
 	
 		<tr>
 
 			<td>Name</td>
 
 			<td><input type="text" name="Name" value="<?php echo $Name; ?>"></td>
-
-		</tr>
-		
-		<tr>
-
-			<td>Telephone</td>
-
-			<td><input type="text" name="Telephone" value="<?php echo $Telephone; ?>"></td>
 
 		</tr>
 		

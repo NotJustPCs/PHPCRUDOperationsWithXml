@@ -19,11 +19,9 @@ if(isset($_POST['submitSave'])) {
 if (strip_tags($_POST['Name']) != "" )
 {
 $DirectoryEntry = $tbook->addChild('DIR_ENTRY');
-$DIR_ENTRY->addAttribute('id', strip_tags($_POST['id']));
-$DIR_ENTRY->addChild('Name', strip_tags($_POST['Name']));
-$DIR_ENTRY->addChild('Telephone', strip_tags($_POST['Telephone']));
-$DIR_ENTRY->addChild('Telephone', strip_tags($_POST['Telephone']));
-file_put_contents('contacts.xml', $tbook->asXML());
+$DirectoryEntry->addChild('Name', strip_tags($_POST['Name']));
+$DirectoryEntry->addChild('Telephone', strip_tags($_POST['Telephone']));
+file_put_contents('data.xml', $tbook->asXML());
 header('location: index.php');
 }else {?>
 <script>alert("The field cannot be empty");</script>
@@ -38,16 +36,8 @@ header('location: index.php');
 			<form method="post">
 				<table cellpadding="2" cellspacing="2">
 					<tr>
-						<td>id</td>
-						<td><input type="text" name="id"></td>
-					</tr>
-					<tr>
 						<td>Name</td>
 						<td><input type="text" name="Name"></td>
-					</tr>
-					<tr>
-						<td>Telephone</td>
-						<td><input type="text" name="Telephone"></td>
 					</tr>
 					<tr>
 						<td>Telephone</td>
